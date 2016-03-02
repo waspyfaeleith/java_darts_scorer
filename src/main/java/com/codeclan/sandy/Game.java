@@ -40,7 +40,7 @@ public class Game {
     	{
     		System.out.println(this.thrower.name + ", you require " + this.thrower.currentScore);
     	}
-    	System.out.println("Enter " + this.thrower.name + "'s score: ");
+    	System.out.println("\n\nEnter " + this.thrower.name + "'s score: ");
         input = in.nextLine();
         Throw t = new Throw(Integer.parseInt(input));
         

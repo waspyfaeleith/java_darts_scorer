@@ -17,10 +17,18 @@ public class Player {
 	
 	public void throwDarts(Throw t)
 	{
-		if (t.isValid() && !isBust(t)) {
+		/*if (t.isValid() && !isBust(t)) {
 			this.currentScore -= t.score;
 			this.scores.add(this.currentScore);
+		}*/
+		if (isBust(t))
+		{
+			t.score = 0;  // you score hee-haw if you're bust!
 		}
+		if (t.isValid()) {
+		  this.currentScore -= t.score;
+		  this.scores.add(this.currentScore);
+	    }
 	}
 	
 	public boolean isBust(Throw t)
