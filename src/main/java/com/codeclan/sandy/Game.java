@@ -38,14 +38,14 @@ public class Game {
     {
     	if (thrower.isOnAFinish())
     	{
-    		System.out.println(this.thrower.name + ", you require " + this.thrower.currentScore);
+    		System.out.println("\n\n" + this.thrower.name + ", you require " + this.thrower.currentScore);
     	}
     	System.out.println("\n\nEnter " + this.thrower.name + "'s score: ");
         input = in.nextLine();
         Throw t = new Throw(Integer.parseInt(input));
         
         while (!t.isValid()) {
-        	System.out.println("Invalid Score - enter " + this.thrower.name + "'s score: ");
+        	System.out.println("\nInvalid Score - enter " + this.thrower.name + "'s score: ");
         	input = in.nextLine();
         	t.score = Integer.parseInt(input);   	
         }
@@ -87,12 +87,12 @@ public class Game {
     {
     	this.clearScreen();
         System.out.println("\n\t\t" + this.startScore);
-        System.out.println("\n\t" + this.player1.name+ "\t  | \t" + this.player2.name);
+        System.out.println("\n\t" + this.player1.name+ "\t | \t" + this.player2.name);
         System.out.println("----------------------------------");
         
         for (int i = 0; i < this.scoreBoardLength(); i++)
         {
-          System.out.println("\t" + (this.player1.scores.size() > i ? this.player1.scores.get(i) : "  " ) + "\t| \t" + (this.player2.scores.size() > i ? this.player2.scores.get(i) : " '"));
+          System.out.println("\t" + (this.player1.scores.size() > i ? this.player1.scores.get(i) : " " ) + "\t | \t" + (this.player2.scores.size() > i ? this.player2.scores.get(i) : " "));
         }
     }
     
@@ -106,6 +106,6 @@ public class Game {
     		//this.printScoreboard();
     	} while (this.winner == null);
     	
-    	System.out.println("Game shot, and the leg, to " + this.winner.name);
+    	System.out.println("\nGame shot, and the leg, to " + this.winner.name);
     }
 }
