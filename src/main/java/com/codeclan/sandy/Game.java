@@ -73,19 +73,26 @@ public class Game {
         System.out.flush();
     }
     
+    private int scoreBoardLength()
+    {
+    	if (player1.scores.size() > player2.scores.size())
+    	{
+          return player1.scores.size();
+    	} else {
+    	  return player2.scores.size();
+    	}
+    }
+    
     private void printScoreboard()
     {
     	this.clearScreen();
         System.out.println("\n\t\t" + this.startScore);
         System.out.println("\n\t" + this.player1.name+ "\t  | \t" + this.player2.name);
         System.out.println("----------------------------------");
-        int i;
-        for (i = 0; i < player2.scores.size(); i++)
+        
+        for (int i = 0; i < this.scoreBoardLength(); i++)
         {
-        	System.out.println("\t" + (this.player1.scores.size() >= i ? this.player1.scores.get(i) : "  " ) + "\t| \t" + (this.player2.scores.size() >= i ? this.player2.scores.get(i) : " '"));
-        }
-        if (thrower == player1 && player1.scores.size() > i && player1.scores.size() > 0) {
-          System.out.println("\t" + this.player1.scores.get(i) + "\t| \t");	
+          System.out.println("\t" + (this.player1.scores.size() > i ? this.player1.scores.get(i) : "  " ) + "\t| \t" + (this.player2.scores.size() > i ? this.player2.scores.get(i) : " '"));
         }
     }
     
