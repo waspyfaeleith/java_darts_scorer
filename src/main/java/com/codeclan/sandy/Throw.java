@@ -15,7 +15,7 @@ public class Throw {
 	{
 		int[] validHighScores = { 180, 177, 174, 171, 170, 168, 167, 165, 164 };
 		
-		if ( ArrayUtils.contains( validHighScores, this.score ) || (this.score < 163)) {
+		if ( ArrayUtils.contains( validHighScores, this.score ) || (this.score < 163 && this.score >= 0)) {
 		    return true;
 		} else {
 			return false;
