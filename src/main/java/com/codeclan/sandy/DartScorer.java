@@ -4,7 +4,7 @@ package com.codeclan.sandy;
  * Darts scorer
  *
  */
-public class App 
+public class DartScorer 
 {
     public static void main( String[] args )
     {

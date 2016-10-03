@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class AppTest {
+public class DartScorerTest {
 
 	@Test
 	public void testGame()
@@ -48,7 +48,6 @@ public class AppTest {
 	public void testPlayerThrowsBustScoreGreaterThanCurrentScore() {
 		Player p = new Player("Fred", 40);
 		Throw t = new Throw(41);
-		//p.currentScore = 40;
 		assertTrue(p.isBust(t));
 	}
     
@@ -56,7 +55,6 @@ public class AppTest {
 	public void testPlayerThrowsBustScoreLeavesOne() {
 		Player p = new Player("Fred", 100);
 		Throw t = new Throw(99);
-		//p.currentScore = 100;
 		assertTrue(p.isBust(t));
 	}
 	
@@ -73,7 +71,6 @@ public class AppTest {
 	@Test
 	public void testPlayerDoesNotThrowWinningScore() {
 		Player p = new Player("Phil", 100);
-		//p.currentScore = 100;
 		Throw t = new Throw(45);
 		assertFalse(p.isWinningScore(t));
 	}
@@ -83,7 +80,6 @@ public class AppTest {
 	public void testPlayerThrowsBustScoreDoesNotChange() {
 		Player p = new Player("Fred", 40);
 		Throw t = new Throw(65);
-		//p.currentScore = 40;
 		p.throwDarts(t);
 		//assertTrue(p.isBust(t));
 		assertEquals(40,p.currentScore);
@@ -142,7 +138,6 @@ public class AppTest {
     public void test158IsAFinish()
     {
     	Player p = new Player("Fred", 158);
-		//p.currentScore = 158;
 		assertTrue(p.isOnAFinish());
     }
     
@@ -150,7 +145,6 @@ public class AppTest {
     public void test138IsAFinish()
     {
     	Player p = new Player("Fred", 138);
-		//p.currentScore = 138;
 		assertTrue(p.isOnAFinish());
     }
     
@@ -158,7 +152,6 @@ public class AppTest {
     public void test159IsNotAFinish()
     {
     	Player p = new Player("Fred", 159);
-		//p.currentScore = 159;
 		assertFalse(p.isOnAFinish());
     }
     
@@ -166,7 +159,6 @@ public class AppTest {
     public void test162IsNotAFinish()
     {
     	Player p = new Player("Fred", 162);
-		//p.currentScore = 162;
 		assertFalse(p.isOnAFinish());
     }
     
