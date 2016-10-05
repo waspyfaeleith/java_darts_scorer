@@ -1,31 +1,44 @@
 package com.codeclan.sandy;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
 
 
 public class DartScorerTest {
 
+	Game game;
+	
+	@Before
+	public void initialize() {
+		int startScore = 501;
+		int sets = 3;
+		int legsPerSet = 5;
+		Player p1 = new Player("Fred", startScore);
+		Player p2 = new Player("Barney", startScore);
+		ArrayList<Player> players = new ArrayList<Player>();
+		players.add(p1);
+		players.add(p2);
+
+		game = new Game(startScore, players, sets, legsPerSet);
+	}
+	
 	@Test
 	public void testGame()
 	{
-       Game g = new Game();
-			
-	   assertEquals(501, g.startScore);
+	   assertEquals(501, game.startScore);
 	}
 	
 	@Test
 	public void testGamePlayersSet()
 	{
-		Game g = new Game();
-		Player p1 = new Player("Fred", g.startScore);
-		Player p2 = new Player("Barney", g.startScore);
-		g.player1 = p1;
-		g.player2 = p1;
 		
-		assertEquals(501, g.startScore);
-		assertEquals(g.startScore, p1.currentScore);
-		assertEquals(g.startScore, p2.currentScore);
+		
+		assertEquals(501, game.startScore);
+		assertEquals(game.startScore, game.player1.currentScore);
+		assertEquals(game.startScore, game.player2.currentScore);
 	}
 	
 	@Test
@@ -33,6 +46,20 @@ public class DartScorerTest {
     	Player p = new Player("Fred", 501);
     	assertEquals("Fred", p.name);
     	assertEquals(501, p.currentScore);
+    }
+	
+	@Test
+    public void testPlayerSetLegsScoreIsZero() {
+    	Player p = new Player("Fred", 501);
+    	assertEquals("Fred", p.name);
+    	assertEquals(0, p.legsWon);
+    }
+	
+	@Test
+    public void testPlayerSetSetsScoreIsZero() {
+    	Player p = new Player("Fred", 501);
+    	assertEquals("Fred", p.name);
+    	assertEquals(0, p.setsWon);
     }
 	
 	@Test

@@ -1,5 +1,6 @@
 package com.codeclan.sandy;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -8,12 +9,21 @@ public class Game {
 	Player thrower;
 	Player winner;
 	int startScore;
+	int sets;
+	int legsPerSet;
 	private Scanner in;
 	String input;
+	Viewer viewer;
 	
-	public Game() {
-    	this.startScore = 501;
-    	in = new Scanner(System.in);
+	public Game(int startScore, ArrayList<Player> players, int sets, int legsPerSet) {
+		viewer = new Viewer();
+		this.startScore = startScore;
+		this.sets = sets;
+		this.legsPerSet = legsPerSet;
+		this.player1 = players.get(0);
+		this.player2 = players.get(1);
+		thrower = player1;
+		
     }
 	
     public Game(Player player1, Player player2) {
@@ -25,7 +35,7 @@ public class Game {
     }
     
     
-    private void changeThrower()
+    public void changeThrower()
     {
     	if (this.thrower == this.player1) {
     		this.thrower = this.player2;
@@ -34,7 +44,20 @@ public class Game {
     	}
     }
     
-    private void getPlayerScore()
+    public boolean gameWon() {
+    	return ((player1.currentScore == 0) || (player2.currentScore == 0));
+    }
+    
+    public Player winner() {
+    	if (player1.currentScore == 0) {
+    	      return player1;
+    	} else if (player2.currentScore == 0) {
+    	      return player2;
+    	}
+    	return null;
+    }
+    
+    /*private void getPlayerScore()
     {
     	if (thrower.isOnAFinish())
     	{
@@ -55,9 +78,9 @@ public class Game {
         	this.winner = this.thrower;
         this.printScoreboard();
         this.changeThrower();
-    }
+    }*/
     
-    private void start()
+    /*private void start()
     {	
     	System.out.println("Enter player 1 name: ");
         input = in.nextLine();
@@ -81,9 +104,9 @@ public class Game {
     	} else {
     	  return player2.scores.size();
     	}
-    }
+    }*/
     
-    private void printScoreboard()
+    /*private void printScoreboard()
     {
     	this.clearScreen();
         System.out.println("\n\t\t" + this.startScore);
@@ -94,9 +117,9 @@ public class Game {
         {
           System.out.println("\t" + (this.player1.scores.size() > i ? this.player1.scores.get(i) : " " ) + "\t | \t" + (this.player2.scores.size() > i ? this.player2.scores.get(i) : " "));
         }
-    }
+    }*/
     
-    public void play()
+    /*public void play()
     {
     	this.start();
     	this.printScoreboard();
@@ -107,5 +130,5 @@ public class Game {
     	} while (this.winner == null);
     	
     	System.out.println("\nGame shot, and the leg, to " + this.winner.name);
-    }
+    }*/
 }

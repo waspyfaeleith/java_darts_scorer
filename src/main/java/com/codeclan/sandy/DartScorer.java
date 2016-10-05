@@ -9,7 +9,15 @@ public class DartScorer
     public static void main( String[] args )
     {
         System.out.println( "Lets play darts!" );
-        Game g = new Game();
-        g.play();
+        Viewer viewer = new Viewer();
+        
+        String player1 = viewer.getPlayerName(1);
+        String player2 = viewer.getPlayerName(2);
+        int sets = viewer.bestOf("sets");
+        int legsPerSet = viewer.bestOf("legs");
+        int startScore = viewer.getStartScore();
+        		
+        Match match = new Match(player1, player2, sets, legsPerSet, startScore);
+        match.play();
     }
 }

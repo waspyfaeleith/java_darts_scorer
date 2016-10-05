@@ -6,11 +6,20 @@ import org.apache.commons.lang3.ArrayUtils;
 public class Player {
 	String name;	
 	int currentScore;
+	int legsWon;
+	int setsWon;
 	ArrayList<Integer> scores;
 	
 	public Player(String name, int startScore)
 	{
 		this.name = name;
+		this.legsWon = 0;
+		this.setsWon = 0;
+		this.resetScores(startScore);
+	}
+	
+	public void resetScores(int startScore)
+	{ 
 		this.currentScore = startScore;
 		this.scores = new ArrayList<Integer>();
 	}
@@ -26,7 +35,6 @@ public class Player {
 	public boolean isBust(Throw t)
 	{
 		if ((t.score > this.currentScore) || ((this.currentScore - t.score) == 1)) {
-			System.out.println("BUST!!");
 			return true;
 		}
 		return false;
