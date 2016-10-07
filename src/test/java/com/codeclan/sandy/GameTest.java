@@ -47,5 +47,13 @@ public class GameTest {
 	public void test_game_won_is_true() {
 		game.player1.currentScore = 0;
 		assertEquals(true, game.gameWon());
-	}	
+	}
+	
+	@Test
+	public void testGamePlayersSet()
+	{	
+		assertEquals(501, game.startScore);
+		assertEquals(game.startScore, game.player1.currentScore);
+		assertEquals(game.startScore, game.player2.currentScore);
+	}
 }
