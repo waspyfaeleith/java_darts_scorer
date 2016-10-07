@@ -1,6 +1,5 @@
 package com.codeclan.sandy;
 
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -32,7 +31,6 @@ public class PlayerTest {
 	@Test
 	public void testPlayerThrowGetsNewCurrentScore() {
 		Player p = new Player("Fred", 140);
-		//p.currentScore = 140;
 		Throw t = new Throw(100);
 		p.throwDarts(t);
 		assertEquals(40, p.currentScore);
@@ -75,7 +73,6 @@ public class PlayerTest {
 		Player p = new Player("Fred", 40);
 		Throw t = new Throw(65);
 		p.throwDarts(t);
-		//assertTrue(p.isBust(t));
 		assertEquals(40,p.currentScore);
 	}
   
@@ -83,7 +80,6 @@ public class PlayerTest {
     public void test164IsAFinish()
     {
     	Player p = new Player("Fred", 164);
-		//p.currentScore = 164;
 		assertTrue(p.isOnAFinish());
     }
     
